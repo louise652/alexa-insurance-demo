@@ -1,0 +1,234 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "liberty quick business",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "Cancel quote"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "getQuote",
+                    "slots": [
+                        {
+                            "name": "Name",
+                            "type": "MISC_STRING",
+                            "samples": [
+                                "My name is {Name}",
+                                "{Name}",
+                                "Its {Name}"
+                            ]
+                        },
+                        {
+                            "name": "BusinessType",
+                            "type": "MISC_STRING",
+                            "samples": [
+                                "{BusinessType}",
+                                "Its {BusinessType}",
+                                "Its a {BusinessType}"
+                            ]
+                        },
+                        {
+                            "name": "Location",
+                            "type": "MISC_STRING",
+                            "samples": [
+                                "{Location}",
+                                "Address is {Location}",
+                                "{Location} is the address",
+                                "Its {Location}"
+                            ]
+                        },
+                        {
+                            "name": "Income",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{Income}",
+                                "{Income} pounds",
+                                "Income is {Income} dollars",
+                                "Income is {Income}"
+                            ]
+                        },
+                        {
+                            "name": "Liability",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{Liability}",
+                                "{Liability} dollars",
+                                "Liability is {Liability} dollars",
+                                "Liability is {Liability}"
+                            ]
+                        },
+                        {
+                            "name": "Deductible",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{Deductible}",
+                                "{Deductible} dollars",
+                                "Deductible is {Deductible} dollars",
+                                "Deductible is {Deductible}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "get quote",
+                        "get a quote",
+                        "i want a quote",
+                        "get insurance",
+                        "i want insurance",
+                        "get an insurance quote",
+                        "i want an insurance quote",
+                        "i want a quote for {BusinessType}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "MISC_STRING",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "123 street"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Louise"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "getQuote",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Name",
+                            "type": "MISC_STRING",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-getQuote.IntentSlot-Name"
+                            }
+                        },
+                        {
+                            "name": "BusinessType",
+                            "type": "MISC_STRING",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-getQuote.IntentSlot-BusinessType"
+                            }
+                        },
+                        {
+                            "name": "Location",
+                            "type": "MISC_STRING",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-getQuote.IntentSlot-Location"
+                            }
+                        },
+                        {
+                            "name": "Income",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-getQuote.IntentSlot-Income"
+                            }
+                        },
+                        {
+                            "name": "Liability",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-getQuote.IntentSlot-Liability"
+                            }
+                        },
+                        {
+                            "name": "Deductible",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-getQuote.IntentSlot-Deductible"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Intent-getQuote.IntentSlot-Name",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Lets get your quote started. Can I have your name?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-getQuote.IntentSlot-BusinessType",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Thanks. Now, what is the type of business that you would like to quote?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-getQuote.IntentSlot-Location",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "And can I have the address of the business?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-getQuote.IntentSlot-Income",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What is the total business income?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-getQuote.IntentSlot-Liability",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Tell me what you would like the liability amount to be in dollars."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-getQuote.IntentSlot-Deductible",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Finally, how much of a deductible would you like?"
+                    }
+                ]
+            }
+        ]
+    }
+}
